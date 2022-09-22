@@ -6,15 +6,6 @@ on:
       - main
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: 16.15.0
-      - run: npm i 
-      # - run: npm test
   deploy: 
     name: deploy to production
     # needs: test
@@ -25,4 +16,6 @@ jobs:
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "licmargarita" #Must be unique in Heroku
-          heroku_email: "jmambrinventre@gmail.com"
+          heroku_email: "jmambrinventre@ca.frre.utn.edu.ar"
+      - run: npm i
+      - run: npm start
